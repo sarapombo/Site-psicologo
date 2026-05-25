@@ -31,7 +31,9 @@ export default function SitePsicologo() {
     { id: "psicodanca", title: "Psicodança", icon: <Waves className="w-6 h-6" />, text: "Abordagem baseada nos princípios morenianos que privilegia a comunicação corpo-mente através do movimento." },
     { id: "terapia-equinos", title: "Terapia Assistida por Equinos", icon: <Award className="w-6 h-6" />, text: "Desenvolvimento pessoal através da relação com cavalos (sessões no solo), funcionando como espelhos emocionais." },
     { id: "psicadelicos", title: "Intervenção Assistida por Psicadélicos", icon: <BookOpen className="w-6 h-6" />, text: "Focada exclusivamente na integração psicológica de experiências em estados ampliados de consciência." },
-    { id: "respiracao-holotropica", title: "Respiração Holotrópica", icon: <Wind className="w-6 h-6" />, text: "Abordagem experiencial que utiliza respiração e música para aceder a estados ampliados de consciência." }
+    { id: "respiracao-holotropica", title: "Respiração Holotrópica", icon: <Wind className="w-6 h-6" />, text: "Abordagem experiencial que utiliza respiração e música para aceder a estados ampliados de consciência." },
+    {  id: "supervisao", title: "Supervisão em Psicoterapia e Psicodrama",  icon: <GraduationCap className="w-6 h-6" />, text: "Supervisão especializada em psicoterapia e psicodrama, individual ou em grupo. Um espaço seguro e colaborativo para reflexão clínica, aprofundamento técnico e desenvolvimento profissional (online e presencial)." 
+    }
   ];
 
   const menuItems = [
@@ -52,7 +54,7 @@ export default function SitePsicologo() {
             onClick={scrollToTop}
             className="flex items-center group cursor-pointer"
           >
-            <img src="/logo.png" alt="Logo Nuno Pires" className="h-16 md:h-20 w-auto transition-transform duration-500 group-hover:scale-105" />
+            <img src="/logo-horizontal.svg" alt="Logo Nuno Pires" className="h-10 md:h-20 w-auto transition-transform duration-500 group-hover:scale-90" />
           </motion.div>
 
           <div className="hidden md:flex items-center space-x-10 text-[12px] font-medium uppercase tracking-[0.2em]">
@@ -113,7 +115,7 @@ export default function SitePsicologo() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="flex justify-center">
-              <motion.img src="/foto-profissional.png" alt="Dr. Nuno Pires" className="relative w-full max-w-sm rounded-2xl shadow-2xl border-b-4 border-[#d76d2d] z-10 transition-transform duration-500" whileHover={{ scale: 1.03, y: -5 }} />
+              <motion.img src="/foto-profissional-1.png" alt="Dr. Nuno Pires" className="relative w-full max-w-sm rounded-2xl shadow-2xl border-b-4 border-[#d76d2d] z-10 transition-transform duration-500" whileHover={{ scale: 1.03, y: -5 }} />
             </motion.div>
           </div>
         </div>
@@ -177,7 +179,7 @@ export default function SitePsicologo() {
           <div className="grid md:grid-cols-3 gap-16 mb-24 items-start">
             
             <div className="space-y-8 text-center md:text-left">
-              <img src="/logo.png" alt="Nuno Pires" className="h-24 w-auto brightness-0 invert mx-auto md:mx-0 opacity-90" />
+              <img src="/logo-horizontal.svg" alt="Nuno Pires" className="h-24 w-auto brightness-0 invert mx-auto md:mx-0 opacity-90" />
               <p className="text-white/70 text-base font-light leading-relaxed max-w-xs mx-auto md:mx-0 italic">
                 Sentir, Agir e Transformar.
               </p>
@@ -187,10 +189,10 @@ export default function SitePsicologo() {
               <h2 className="text-3xl font-serif text-[#d76d2d] uppercase tracking-[0.2em]">Contactos Profissionais</h2>
               <div className="w-16 h-1 bg-[#d76d2d] mx-auto mb-8"></div>
               <div className="space-y-5">
-                <a href="https://wa.me/351912345678" className="flex items-center justify-center gap-4 p-5 bg-[#d76d2d] rounded-2xl hover:bg-white hover:text-[#4f5e38] transition-all font-bold shadow-xl group text-lg">
+                <a href="https://wa.me/351962858716" className="flex items-center justify-center gap-4 p-5 bg-[#d76d2d] rounded-2xl hover:bg-white hover:text-[#4f5e38] transition-all font-bold shadow-xl group text-lg">
                   <MessageCircle size={22} className="group-hover:rotate-12 transition-transform" /> WhatsApp
                 </a>
-                <a href="mailto:exemplo@nuno-pires.pt" className="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/20 hover:bg-white/10 transition-all text-base tracking-wide">
+                <a href="mailto:nunopirespsic@hotmail.com" className="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/20 hover:bg-white/10 transition-all text-base tracking-wide">
                   Enviar Email
                 </a>
               </div>
@@ -199,8 +201,7 @@ export default function SitePsicologo() {
             <div className="text-center md:text-right space-y-8">
               <h4 className="text-xs uppercase tracking-[0.4em] font-bold text-[#d76d2d]">Redes Sociais</h4>
               <div className="flex justify-center md:justify-end gap-6">
-                <a href="#" className="p-4 bg-white/5 rounded-full hover:bg-[#d76d2d] transition-all border border-white/10"><Instagram size={24} /></a>
-                <a href="#" className="p-4 bg-white/5 rounded-full hover:bg-[#d76d2d] transition-all border border-white/10"><Linkedin size={24} /></a>
+              <a href="https://www.instagram.com/nunomcpires" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-[#d76d2d] transition-all border border-white/10 shadow-lg"> <Instagram size={20} /></a>
               </div>
             </div>
           </div>

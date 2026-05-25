@@ -21,7 +21,8 @@ const contentMap: Record<string, { title: string; paragraphs: string[]; highligh
       "O Psicodrama é um modelo psicoterapêutico criado pelo psiquiatra Jacob Levy Moreno, que alia a expressão emocional, a ação e a relação com os outros como ferramentas de mudança terapêutica. Trata-se de uma terapia individual que decorre em contexto de grupo.",
       "Através da representação de situações da vida quotidiana, memórias, sonhos ou fantasias, a pessoa é convidada a vivenciar externamente a sua experiência interna. Este processo favorece o desenvolvimento da espontaneidade, da criatividade e de novas respostas a situações vividas, permitindo uma compreensão mais profunda de si próprio e das suas relações."
     ],
-    highlights: ["Contexto de Grupo", "Ação Terapêutica", "Creatividade"]
+    highlights: ["Contexto de Grupo", "Ação Terapêutica", "Criatividade"],
+    images: ["/psicodrama-1.jpeg", "/psicodrama-2.jpeg"]
   },
   "psicodanca": {
     title: "Psicodança",
@@ -30,7 +31,7 @@ const contentMap: Record<string, { title: string; paragraphs: string[]; highligh
       "Ao reduzir o foco exclusivo na palavra, a Psicodança permite que emoções, vivências e formas de relação emerjam através do corpo. Este processo facilita a identificação e elaboração de padrões emocionais e relacionais, promovendo novas formas de expressão, maior consciência corporal e integração emocional no dia-a-dia."
     ],
     highlights: ["Corpo-Mente", "Expressão Corporal", "Música"],
-    images: ["/psicodanca.png"] 
+    images: ["/psicodanca-5.jpeg", "/psicodanca-1.jpeg" ,"/psicodanca-2.jpeg" , "/psicodanca-3.jpeg" ,"/psicodanca-4.jpeg" ,"/psicodanca.png"] 
   },
   "terapia-equinos": {
     title: "Terapia Assistida por Equinos",
@@ -43,10 +44,11 @@ const contentMap: Record<string, { title: string; paragraphs: string[]; highligh
     images: ["/cavalo.png", "/cavalo2.png", "/cavalo3.png"] 
   },
   "psicadelicos": {
-    title: "Intervenção Assistida por Psicadélicos",
+    title: "Preparação e Integração de Experiências Psicadélicas",
     paragraphs: [
-      "A Intervenção Assistida por Psicadélicos, neste contexto, centra-se exclusivamente no trabalho de integração psicológica de experiências vividas em estados ampliados de consciência. O objetivo é apoiar a pessoa na compreensão, elaboração e incorporação dessas experiências na sua vida emocional, relacional e existencial.",
-      "O trabalho de integração permite transformar vivências intensas ou significativas em aprendizagens com sentido, promovendo maior clareza, autoconhecimento e mudanças sustentadas no quotidiano. Através de um acompanhamento terapêutico estruturado, procura-se ajudar a pessoa a dar significado ao que foi experienciado, a regular o impacto emocional e a traduzir os insights obtidos em ações concretas e alinhadas com os seus valores."
+        "A intervenção de preparação e integração psicológica de experiências psicadélicas centra-se no acompanhamento da pessoa antes e após vivências em estados ampliados de consciência. O objetivo é apoiar a pessoa na compreensão, elaboração e incorporação dessas experiências na sua vida emocional, relacional e existencial. A preparação psicológica procura ajudar a pessoa a clarificar intenções, expectativas, receios e recursos internos, promovendo maior segurança emocional e capacidade de integração da experiência.", 
+        "O processo de integração permite transformar vivências intensas ou significativas em aprendizagens com sentido, promovendo maior clareza, autoconhecimento e mudanças sustentadas no quotidiano. Através de um acompanhamento terapêutico estruturado, procura-se ajudar a pessoa a dar significado ao que foi experienciado, a regular o impacto emocional e a traduzir os insights obtidos em ações concretas e alinhadas com os seus valores.",
+        "Esta abordagem enquadra-se numa perspetiva de redução de riscos e minimização de danos, sem promover ou incentivar o uso de substâncias psicadélicas."
     ],
     highlights: ["Integração", "Estados Ampliados", "Insights"]
   },
@@ -57,6 +59,15 @@ const contentMap: Record<string, { title: string; paragraphs: string[]; highligh
       "Este processo possibilita o contacto com conteúdos emocionais, biográficos e simbólicos, favorecendo a expressão, a integração e a libertação de tensões físicas e emocionais. A Respiração Holotrópica promove o aprofundamento do autoconhecimento, a regulação emocional e a integração corpo–mente, respeitando o ritmo e a experiência subjetiva de cada pessoa."
     ],
     highlights: ["Experiencial", "Sem Substâncias", "Libertação"]
+  },
+  "supervisao": {
+    title: "Supervisão em Psicoterapia e Psicodrama",
+    paragraphs: [
+      "Desenvolva a sua prática clínica com supervisão especializada em psicoterapia e psicodrama, em formato individual ou de grupo. Um espaço seguro e colaborativo para reflexão clínica, aprofundamento técnico e crescimento profissional, com foco na qualidade da intervenção e no desenvolvimento do terapeuta.",
+      "Modalidades disponíveis: individual e grupo, online e presencial",
+      "Peça mais informações ou agende a sua sessão."
+    ],
+    highlights: ["Reflexão Clínica", "Individual ou Grupo", "Presencial e Online"]
   }
 };
 

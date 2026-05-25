@@ -1,4 +1,4 @@
-import { Instagram, Linkedin } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -10,7 +10,7 @@ export function Footer() {
           
           {/* Coluna 1: Logo Dr. Nuno */}
           <div className="space-y-4 text-center md:text-left">
-            <img src="/logo.png" alt="Nuno Pires" className="h-16 md:h-20 w-auto brightness-0 invert mx-auto md:mx-0 opacity-90" />
+            <img src="/logo-horizontal.svg" alt="Nuno Pires" className="h-16 md:h-20 w-auto brightness-0 invert mx-auto md:mx-0 opacity-90" />
             <p className="text-white/60 text-base font-serif italic max-w-xs mx-auto md:mx-0">
               Sentir, Agir e Transformar.
             </p>
@@ -20,8 +20,7 @@ export function Footer() {
           <div className="text-center md:text-right space-y-6">
             <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#d76d2d]">Redes Sociais</h4>
             <div className="flex justify-center md:justify-end gap-4">
-              <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-[#d76d2d] transition-all border border-white/10 shadow-lg"><Instagram size={20} /></a>
-              <a href="#" className="p-3 bg-white/5 rounded-full hover:bg-[#d76d2d] transition-all border border-white/10 shadow-lg"><Linkedin size={20} /></a>
+            <a href="https://www.instagram.com/nunomcpires" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-[#d76d2d] transition-all border border-white/10 shadow-lg"> <Instagram size={20} /></a>
             </div>
           </div>
         </div>

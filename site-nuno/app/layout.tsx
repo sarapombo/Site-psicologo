@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   description: "Psicólogo Clínico & Psicoterapeuta — Integração Emocional e Desenvolvimento Pessoal",
   icons: {
     // O ?v=1 força o browser a ler o ficheiro de novo e ignorar o antigo que está em cache
-    icon: "/logo-1.png?v=1",
-    shortcut: "/logo-1.png?v=1",
-    apple: "/logo-1.png?v=1",
+    icon: "/logo-simbolo.svg?v=1",
+    shortcut: "/logo-simbolo.svg?v=1",
+    apple: "/logo-simbolo.svg?v=1",
   },
 };
 
