@@ -153,28 +153,34 @@ function SitePsicologo() {
             <img src="/logo-horizontal.svg" alt="Logo Nuno Pires" className="h-10 md:h-20 w-auto transition-transform duration-500 group-hover:scale-90" />
           </motion.div>
 
-          <div className="hidden md:flex items-center space-x-10 text-[12px] font-medium uppercase tracking-[0.2em]">
-            {menuItems.map((item) => (
-              <a 
-                key={item.name[lang]}
-                href={item.href} 
-                onClick={() => setActiveSection(item.href)}
-                className={`transition-all duration-300 ${activeSection === item.href ? 'text-[#d76d2d]' : 'hover:text-[#d76d2d]'}`}
-              >
-                {item.name[lang]}
+          {/* Grupo da Direita: Contém o menu do PC e o Botão de Idioma */}
+          <div className="flex items-center gap-4">
+            
+            {/* Menu de Links - Visível apenas em PC (md) */}
+            <div className="hidden md:flex items-center space-x-10 text-[12px] font-medium uppercase tracking-[0.2em]">
+              {menuItems.map((item) => (
+                <a 
+                  key={item.name[lang]}
+                  href={item.href} 
+                  onClick={() => setActiveSection(item.href)}
+                  className={`transition-all duration-300 ${activeSection === item.href ? 'text-[#d76d2d]' : 'hover:text-[#d76d2d]'}`}
+                >
+                  {item.name[lang]}
+                </a>
+              ))}
+              <a href="#contacto" className="bg-[#4f5e38] text-white px-8 py-3 rounded-full hover:bg-[#d76d2d] transition-all shadow-md ml-4">
+                {staticTexts.contactsBtn[lang]}
               </a>
-            ))}
-            <a href="#contacto" className="bg-[#4f5e38] text-white px-8 py-3 rounded-full hover:bg-[#d76d2d] transition-all shadow-md ml-4">
-              {staticTexts.contactsBtn[lang]}
-            </a>
+            </div>
 
-            {/* BOTÃO SELETOR DE IDIOMA */}
+            {/* BOTÃO SELETOR DE IDIOMA - Fora da div oculta, visível em MOBILE e PC */}
             <button 
               onClick={() => setLang(lang === 'pt' ? 'en' : 'pt')}
-              className="ml-4 px-3 py-1 border border-[#E5E2D9] rounded-md text-[11px] font-bold text-[#4f5e38] hover:border-[#d76d2d] hover:text-[#d76d2d] transition-colors bg-white/50"
+              className="px-3 py-1.5 border border-[#E5E2D9] rounded-md text-[11px] font-bold text-[#4f5e38] hover:border-[#d76d2d] hover:text-[#d76d2d] transition-colors bg-white/50"
             >
               {lang === 'pt' ? 'EN' : 'PT'}
             </button>
+
           </div>
         </div>
       </nav>
