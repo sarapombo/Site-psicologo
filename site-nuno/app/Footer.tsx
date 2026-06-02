@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense } from 'react';
+import React, { Suspense } from 'react'; // <-- GARANTE QUE 'Suspense' ESTÁ AQUI!
 import { useSearchParams } from 'next/navigation';
 import { Instagram } from 'lucide-react';
 

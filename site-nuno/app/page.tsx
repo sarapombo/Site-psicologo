@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { 
@@ -19,7 +19,8 @@ import {
 
 type Language = 'pt' | 'en';
 
-export default function SitePsicologo() {
+// REMOVIDO o "export default" daqui para podermos aplicar o Suspense abaixo
+function SitePsicologo() {
   const searchParams = useSearchParams();
   const router = useRouter();
   
@@ -167,7 +168,7 @@ export default function SitePsicologo() {
               {staticTexts.contactsBtn[lang]}
             </a>
 
-            {/* BOTÃO SELETOR DE IDIOMA (Apenas altera o estado local de forma segura) */}
+            {/* BOTÃO SELETOR DE IDIOMA */}
             <button 
               onClick={() => setLang(lang === 'pt' ? 'en' : 'pt')}
               className="ml-4 px-3 py-1 border border-[#E5E2D9] rounded-md text-[11px] font-bold text-[#4f5e38] hover:border-[#d76d2d] hover:text-[#d76d2d] transition-colors bg-white/50"
@@ -263,7 +264,6 @@ export default function SitePsicologo() {
                 <h3 className="text-lg font-bold mb-3 text-[#4f5e38]">{item.title[lang]}</h3>
                 <p className="text-gray-500 text-sm mb-8 flex-grow font-light leading-relaxed">{item.text[lang]}</p>
                 
-                {/* ALTERADO: Navegação controlada via router para passar o lang sem quebrar âncoras */}
                 <button 
                   onClick={() => router.push(`/intervencoes/${item.id}?lang=${lang}`)}
                   className="inline-flex items-center text-xs font-bold uppercase tracking-[0.2em] text-[#d76d2d] hover:text-[#4f5e38] transition-colors py-2 text-left"
@@ -281,14 +281,13 @@ export default function SitePsicologo() {
         <img src="/cavalo_sem_fundo.png" alt="Cavalo" className="absolute bottom-[-180px] md:bottom-[-220px] z-20 h-[400px] md:h-[550px] w-auto drop-shadow-2xl" />
       </div>
 
-      {/* --- FOOTER CUSTOMIZADO DA PÁGINA PRINCIPAL --- */}
+      {/* --- FOOTER CUSTOMIZADO --- */}
       <footer id="contacto" className="bg-[#4f5e38] text-white pt-40 pb-16 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-16 mb-24 items-start">
             
             <div className="space-y-8 text-center md:text-left">
               <img src="/logo-horizontal.svg" alt="Nuno Pires" className="h-24 w-auto brightness-0 invert mx-auto md:mx-0 opacity-90" />
-              {/* TRADUZIDO: Slogan agora muda com o idioma */}
               <p className="text-white/70 text-base font-light leading-relaxed max-w-xs mx-auto md:mx-0 italic">
                 {lang === 'pt' ? "Sentir, Agir e Transformar." : "To Feel, to Act and to Transform."}
               </p>
@@ -308,7 +307,6 @@ export default function SitePsicologo() {
             </div>
 
             <div className="text-center md:text-right space-y-8">
-              {/* TRADUZIDO: Título das redes sociais agora muda com o idioma */}
               <h4 className="text-xs uppercase tracking-[0.4em] font-bold text-[#d76d2d]">
                 {lang === 'pt' ? "Redes Sociais" : "Social Media"}
               </h4>
@@ -347,5 +345,14 @@ export default function SitePsicologo() {
         </div>
       </footer>
     </div>
+  );
+}
+
+// NOVO EXPORT DEFAULT COM SUSPENSE (Protege o build contra o useSearchParams)
+export default function Page() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#F8F7F2]" />}>
+      <SitePsicologo />
+    </Suspense>
   );
 }
