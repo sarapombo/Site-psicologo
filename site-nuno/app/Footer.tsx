@@ -1,12 +1,12 @@
 "use client";
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Instagram } from 'lucide-react';
 
 type Language = 'pt' | 'en';
 
-export function Footer() {
+function FooterContent() {
   const searchParams = useSearchParams();
   
   // Deteta o idioma atual na URL (?lang=en ou ?lang=pt)
@@ -92,5 +92,14 @@ export function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+// Envolver em Suspense protege o build do Next.js de quebrar por causa do useSearchParams
+export function Footer() {
+  return (
+    <Suspense fallback={<footer className="bg-[#4f5e38] h-20" />}>
+      <FooterContent />
+    </Suspense>
   );
 }
