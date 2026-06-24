@@ -49,7 +49,7 @@ const contentMap: Record<string, ContentItem> = {
       pt: ["Contexto de Grupo", "Ação Terapêutica", "Criatividade"],
       en: ["Group Context", "Therapeutic Action", "Creativity"]
     },
-    images: ["/psicodrama-1.jpeg", "/psicodrama-2.jpeg"]
+    images: ["/psicodrama-1.jpeg", "/psicodrama-2.jpeg", "/psicodrama-3.jpeg"]
   },
   "psicodanca": {
     title: { pt: "Psicodança", en: "Psychodance" },
@@ -129,14 +129,12 @@ const contentMap: Record<string, ContentItem> = {
     title: { pt: "Supervisão em Psicoterapia e Psicodrama", en: "Psychotherapy and Psychodrama Supervision" },
     paragraphs: {
       pt: [
-        "Desenvolva a sua prática clínica com supervisão especializada em psicoterapia e psicodrama, em formato individual ou de grupo. Um espaço seguro e colaborativo para reflexão clínica, aprofundamento técnico e crescimento profissional, com foco na qualidade da intervenção e no desenvolvimento do terapeuta.",
+        "Supervisão especializada em psicoterapia individual e psicoterapia de grupo, incluindo psicodrama. Um espaço de reflexão clínica, aprendizagem e desenvolvimento profissional, orientado para o aprofundamento técnico, a qualidade da intervenção e o crescimento contínuo do terapeuta.",
         "Modalidades disponíveis: individual e grupo, online e presencial",
-        "Peça mais informações ou agende a sua sessão."
       ],
       en: [
-        "Develop your clinical practice with specialized supervision in psychotherapy and psychodrama, available in individual or group formats. A safe and collaborative environment for clinical reflection, technical refinement, and professional growth, centering on intervention quality and therapist development.",
+        "Specialized supervision in individual and group psychotherapy, including psychodrama. A space for clinical reflection, learning, and professional development, aimed at technical deepening, intervention quality, and the continuous growth of the therapist.",
         "Available modules: individual and group, online and in-person",
-        "Request more information or schedule your session."
       ]
     },
     highlights: {

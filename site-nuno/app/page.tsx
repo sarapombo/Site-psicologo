@@ -121,6 +121,7 @@ function SitePsicologo() {
     aboutTitle: { pt: "A Minha Prática", en: "My Practice" },
     aboutP1: { pt: "A minha prática clínica integra abordagens relacionais, experienciais e corporais, com foco no autoconhecimento.", en: "My clinical practice integrates relational, experiential, and somatic approaches, with a core focus on self-knowledge." },
     aboutP2: { pt: "Sou Psicólogo Clínico, Psicoterapeuta individual e de grupo, Diretor de Psicodrama e Psicodança.", en: "I am a Clinical Psychologist, individual and group Psychotherapist, and a Director of Psychodrama and Psychodance." },
+    aboutP3: { pt: "As consultas podem decorrer em formato presencial ou online, em português ou inglês, de acordo com a preferência e necessidades de cada pessoa.", en: "Appointments can take place either in person or online, in Portuguese or English, according to each person's preference and needs." },
     opp: { pt: "Membro Efetivo da Ordem dos Psicólogos Portugueses", en: "Full Member of the Portuguese Order of Psychologists" },
     aipjgrb: { pt: "Sócio Fundador da AIPJGRB", en: "Founding Member of AIPJGRB" },
     spp: { pt: "Sócio Didata da SPP", en: "Teaching Member of SPP" },
@@ -215,6 +216,7 @@ function SitePsicologo() {
               <div className="space-y-4 text-gray-600 font-light text-lg">
                 <p>{staticTexts.aboutP1[lang]}</p>
                 <p>{staticTexts.aboutP2[lang]}</p>
+                <p>{staticTexts.aboutP3[lang]}</p>
               </div>
               <div className="pt-6 border-t border-[#F0EFEB]">
                 <ul className="space-y-3 text-sm text-[#4f5e38]">
@@ -306,7 +308,7 @@ function SitePsicologo() {
                 <a href="https://wa.me/351962858716" className="flex items-center justify-center gap-4 p-5 bg-[#d76d2d] rounded-2xl hover:bg-white hover:text-[#4f5e38] transition-all font-bold shadow-xl group text-lg">
                   <MessageCircle size={22} className="group-hover:rotate-12 transition-transform" /> WhatsApp
                 </a>
-                <a href="mailto:nunopirespsic@hotmail.com" className="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/20 hover:bg-white/10 transition-all text-base tracking-wide">
+                <a href="mailto:nunopirespsic@gmail.com" className="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/20 hover:bg-white/10 transition-all text-base tracking-wide">
                   {staticTexts.emailBtn[lang]}
                 </a>
               </div>
