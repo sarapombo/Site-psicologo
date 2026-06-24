@@ -274,7 +274,7 @@ export default function DetalheIntervencao() {
               <a href="https://wa.me/351962858716" className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#d76d2d] text-white rounded-full hover:bg-white hover:text-[#4f5e38] transition-all font-bold shadow-lg">
                 <MessageCircle size={20} /> {staticTexts.whatsapp[lang]}
               </a>
-              <a href="mailto:nunopirespsic@hotmail.com" className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/20 text-white rounded-full hover:bg-white/10 backdrop-blur-md transition-all">
+              <a href="mailto:nunopirespsic@gmail.com" className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/20 text-white rounded-full hover:bg-white/10 backdrop-blur-md transition-all">
                 <Mail size={20} /> {staticTexts.email[lang]}
               </a>
             </div>
