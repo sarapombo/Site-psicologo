@@ -3,6 +3,7 @@
 import React, { Suspense } from 'react'; // <-- GARANTE QUE 'Suspense' ESTÁ AQUI!
 import { useSearchParams } from 'next/navigation';
 import { Instagram } from 'lucide-react';
+import { ContactInfo } from './ContactInfo';
 
 type Language = 'pt' | 'en';
 
@@ -19,7 +20,11 @@ function FooterContent() {
       pt: "Sentir, Agir e Transformar.", 
       en: "To Feel, to Act and to Transform." 
     },
-    socials: { 
+    contacts: {
+      pt: "Contactos",
+      en: "Contacts"
+    },
+    socials: {
       pt: "Redes Sociais", 
       en: "Social Media" 
     },
@@ -36,8 +41,8 @@ function FooterContent() {
   return (
     <footer className="bg-gradient-to-b from-[#4f5e38] to-[#6b7d52] text-white pt-12 pb-8 px-6 relative z-10 border-t border-white/5">
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-10 mb-12 items-center">
-          
+        <div className="grid md:grid-cols-3 gap-10 mb-12 items-start">
+
           {/* Coluna 1: Logo Dr. Nuno */}
           <div className="space-y-4 text-center md:text-left">
             <img src="/logo-horizontal.svg" alt="Nuno Pires" className="h-16 md:h-20 w-auto brightness-0 invert mx-auto md:mx-0 opacity-90" />
@@ -46,7 +51,15 @@ function FooterContent() {
             </p>
           </div>
 
-          {/* Coluna 2: Redes Sociais */}
+          {/* Coluna 2: Contactos (morada, telemóvel e email) */}
+          <div className="space-y-6">
+            <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#d76d2d] text-center">
+              {staticTexts.contacts[lang]}
+            </h4>
+            <ContactInfo lang={lang} />
+          </div>
+
+          {/* Coluna 3: Redes Sociais */}
           <div className="text-center md:text-right space-y-6">
             <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#d76d2d]">
               {staticTexts.socials[lang]}

@@ -16,6 +16,7 @@ import {
   ShieldCheck, 
   Instagram 
 } from 'lucide-react';
+import { ContactInfo } from './ContactInfo';
 
 type Language = 'pt' | 'en';
 
@@ -306,6 +307,9 @@ function SitePsicologo() {
                 <a href="mailto:nunopirespsic@gmail.com" className="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/20 hover:bg-white/10 transition-all text-base tracking-wide">
                   {staticTexts.emailBtn[lang]}
                 </a>
+              </div>
+              <div className="pt-10 mt-10 border-t border-white/10">
+                <ContactInfo lang={lang} />
               </div>
             </div>
 
