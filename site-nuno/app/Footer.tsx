@@ -45,7 +45,7 @@ function FooterContent() {
 
           {/* Coluna 1: Logo Dr. Nuno */}
           <div className="space-y-4 text-center md:text-left">
-            <img src="/logo-horizontal.svg" alt="Nuno Pires" className="h-16 md:h-20 w-auto brightness-0 invert mx-auto md:mx-0 opacity-90" />
+            <img src="/logo-nuno-pires-branco.svg" alt="Nuno Pires — Psicólogo Clínico & Psicoterapeuta" className="w-full max-w-[280px] h-auto mx-auto md:mx-0" />
             <p className="text-white/60 text-base font-serif italic max-w-xs mx-auto md:mx-0">
               {staticTexts.slogan[lang]}
             </p>

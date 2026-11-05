@@ -150,16 +150,16 @@ function SitePsicologo() {
             initial={{ opacity: 0, y: -20 }} 
             animate={{ opacity: 1, y: 0 }} 
             onClick={scrollToTop}
-            className="flex items-center group cursor-pointer"
+            className="flex items-center shrink-0 group cursor-pointer"
           >
-            <img src="/logo-horizontal.svg" alt="Logo Nuno Pires" className="h-10 md:h-20 w-auto transition-transform duration-500 group-hover:scale-90" />
+            <img src="/logo-nuno-pires.svg" alt="Nuno Pires — Psicólogo Clínico & Psicoterapeuta" className="h-10 md:h-12 lg:h-16 w-auto transition-transform duration-500 group-hover:scale-90" />
           </motion.div>
 
           {/* Grupo da Direita: Contém o menu do PC e o Botão de Idioma */}
           <div className="flex items-center gap-4">
             
-            {/* Menu de Links - Visível apenas em PC (md) */}
-            <div className="hidden md:flex items-center space-x-10 text-[12px] font-medium uppercase tracking-[0.2em]">
+            {/* Menu de Links - Visível apenas em PC (lg) */}
+            <div className="hidden lg:flex items-center space-x-10 text-[12px] font-medium uppercase tracking-[0.2em]">
               {menuItems.map((item) => (
                 <a 
                   key={item.name[lang]}
@@ -291,7 +291,7 @@ function SitePsicologo() {
           <div className="grid md:grid-cols-3 gap-16 mb-24 items-start">
             
             <div className="space-y-8 text-center md:text-left">
-              <img src="/logo-horizontal.svg" alt="Nuno Pires" className="h-24 w-auto brightness-0 invert mx-auto md:mx-0 opacity-90" />
+              <img src="/logo-nuno-pires-branco.svg" alt="Nuno Pires — Psicólogo Clínico & Psicoterapeuta" className="w-full max-w-[300px] h-auto mx-auto md:mx-0" />
               <p className="text-white/70 text-base font-light leading-relaxed max-w-xs mx-auto md:mx-0 italic">
                 {lang === 'pt' ? "Sentir, Agir e Transformar." : "To Feel, to Act and to Transform."}
               </p>

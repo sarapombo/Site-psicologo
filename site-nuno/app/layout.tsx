@@ -16,10 +16,10 @@ export const metadata: Metadata = {
   title: "Nuno Pires - Psicólogo Clínico & Psicoterapeuta",
   description: "Psicólogo Clínico & Psicoterapeuta — Integração Emocional e Desenvolvimento Pessoal",
   icons: {
-    // O ?v=1 força o browser a ler o ficheiro de novo e ignorar o antigo que está em cache
-    icon: "/logo-simbolo.svg?v=1",
-    shortcut: "/logo-simbolo.svg?v=1",
-    apple: "/logo-simbolo.svg?v=1",
+    // O ?v=2 força o browser a ler o ficheiro de novo e ignorar o antigo que está em cache
+    icon: "/logo-nuno-pires-simbolo.svg?v=2",
+    shortcut: "/logo-nuno-pires-simbolo.svg?v=2",
+    apple: "/logo-nuno-pires-simbolo.svg?v=2",
   },
 };
 
