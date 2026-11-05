@@ -284,13 +284,8 @@ function SitePsicologo() {
         </div>
       </section>
 
-      {/* --- CAVALO --- */}
-      <div className="relative h-40 md:h-56 flex justify-center pointer-events-none overflow-visible">
-        <img src="/cavalo_sem_fundo.png" alt="Cavalo" className="absolute bottom-[-180px] md:bottom-[-220px] z-20 h-[400px] md:h-[550px] w-auto drop-shadow-2xl" />
-      </div>
-
       {/* --- FOOTER CUSTOMIZADO --- */}
-      <footer id="contacto" className="bg-[#4f5e38] text-white pt-40 pb-16 px-6 relative z-10">
+      <footer id="contacto" className="bg-[#4f5e38] text-white pt-24 pb-16 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-16 mb-24 items-start">
             
