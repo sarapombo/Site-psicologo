@@ -30,7 +30,7 @@ export const contentMap: Record<string, ContentItem> = {
     paragraphs: {
       pt: [
         "O Psicodrama é um modelo psicoterapêutico criado pelo psiquiatra Jacob Levy Moreno, que alia a expressão emocional, a ação e a relação com os outros como ferramentas de mudança terapêutica. Trata-se de uma terapia individual que decorre em contexto de grupo.",
-        "Através da representação de situações da vida quotidiana, memórias, sonhos ou fantasias, a pessoa é convidada a vivenciar externamente a sua experiência interna. Este processo favorece o desenvolvimento da spontaneity, da criatividade e de novas respostas a situações vividas, permitindo uma compreensão mais profunda de si próprio e das suas relações."
+        "Através da representação de situações da vida quotidiana, memórias, sonhos ou fantasias, a pessoa é convidada a vivenciar externamente a sua experiência interna. Este processo favorece o desenvolvimento da espontaneidade, da criatividade e de novas respostas a situações vividas, permitindo uma compreensão mais profunda de si próprio e das suas relações."
       ],
       en: [
         "Psychodrama is a psychotherapeutic model created by psychiatrist Jacob Levy Moreno, combining emotional expression, action, and relationships with others as tools for therapeutic change. It is an individual therapy that takes place within a group context.",

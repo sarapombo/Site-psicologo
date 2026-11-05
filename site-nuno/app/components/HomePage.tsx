@@ -80,7 +80,7 @@ export function HomePage({ lang }: { lang: Language }) {
       title: { pt: "Respiração Holotrópica", en: "Holotropic Breathwork" }, 
       icon: <Wind className="w-6 h-6" />, 
       text: { 
-        pt: "Abordagem experiencial que utiliza respiração e música para aceder a states ampliados de consciência.", 
+        pt: "Abordagem experiencial que utiliza respiração e música para aceder a estados ampliados de consciência.", 
         en: "An experiential approach that uses breathing patterns and evocative music to access expanded states of consciousness." 
       } 
     },
