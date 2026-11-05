@@ -1,19 +1,10 @@
-"use client";
-
-import React, { Suspense } from 'react'; // <-- GARANTE QUE 'Suspense' ESTÁ AQUI!
-import { useSearchParams } from 'next/navigation';
+import React from 'react';
 import { Instagram } from 'lucide-react';
 import { ContactInfo } from './ContactInfo';
+import type { Language } from '../lib/i18n';
 
-type Language = 'pt' | 'en';
-
-function FooterContent() {
-  const searchParams = useSearchParams();
-  
-  // Deteta o idioma atual na URL (?lang=en ou ?lang=pt)
-  const currentLang = searchParams.get('lang') as Language;
-  const lang: Language = currentLang === 'en' ? 'en' : 'pt';
-
+// Footer das páginas de intervenções. O idioma vem do endereço (/ ou /en).
+export function Footer({ lang }: { lang: Language }) {
   // Dicionário de textos para o Footer
   const staticTexts = {
     slogan: { 
@@ -108,14 +99,5 @@ function FooterContent() {
         </div>
       </div>
     </footer>
-  );
-}
-
-// Envolver em Suspense protege o build do Next.js de quebrar por causa do useSearchParams
-export function Footer() {
-  return (
-    <Suspense fallback={<footer className="bg-[#4f5e38] h-20" />}>
-      <FooterContent />
-    </Suspense>
   );
 }

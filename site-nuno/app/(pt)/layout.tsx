@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
+import { geistSans, geistMono } from "../lib/fonts";
+import { SITE_URL } from "../lib/i18n";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
+// Layout da versão portuguesa (/ e /intervencoes/...)
 export const metadata: Metadata = {
-  title: "Nuno Pires - Psicólogo Clínico & Psicoterapeuta",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Nuno Pires - Psicólogo Clínico & Psicoterapeuta",
+    template: "%s | Nuno Pires",
+  },
   description: "Psicólogo Clínico & Psicoterapeuta — Integração Emocional e Desenvolvimento Pessoal",
   icons: {
     // O ?v=2 força o browser a ler o ficheiro de novo e ignorar o antigo que está em cache
@@ -29,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="scroll-smooth">
+    <html lang="pt-PT" className="scroll-smooth">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-[#d76d2d]/30`}>
         {children}
       </body>

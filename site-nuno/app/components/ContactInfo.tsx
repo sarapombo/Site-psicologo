@@ -1,7 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
-
-type Language = 'pt' | 'en';
+import type { Language } from '../lib/i18n';
 
 // Morada (não se traduz) — usada no link do Google Maps
 const MAPS_URL =

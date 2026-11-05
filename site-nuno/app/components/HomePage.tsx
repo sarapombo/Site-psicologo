@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { 
   MessageCircle, 
@@ -17,24 +17,12 @@ import {
   Instagram 
 } from 'lucide-react';
 import { ContactInfo } from './ContactInfo';
+import { type Language, localePath } from '../lib/i18n';
 
-type Language = 'pt' | 'en';
-
-// REMOVIDO o "export default" daqui para podermos aplicar o Suspense abaixo
-function SitePsicologo() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  
-  const [lang, setLang] = useState<Language>('pt');
+// Página principal. O idioma vem do endereço: / (português) ou /en (inglês).
+export function HomePage({ lang }: { lang: Language }) {
   const [activeSection, setActiveSection] = useState('');
-
-  // Sincroniza apenas se vier um parâmetro explícito na URL (ex: quando volta do detalhe)
-  useEffect(() => {
-    const urlLang = searchParams.get('lang') as Language;
-    if (urlLang === 'pt' || urlLang === 'en') {
-      setLang(urlLang);
-    }
-  }, [searchParams]);
+  const otherLang: Language = lang === 'pt' ? 'en' : 'pt';
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -175,13 +163,15 @@ function SitePsicologo() {
               </a>
             </div>
 
-            {/* BOTÃO SELETOR DE IDIOMA - Fora da div oculta, visível em MOBILE e PC */}
-            <button 
-              onClick={() => setLang(lang === 'pt' ? 'en' : 'pt')}
+            {/* SELETOR DE IDIOMA - link para a mesma página no outro idioma, visível em MOBILE e PC */}
+            <Link
+              href={localePath(otherLang)}
+              hrefLang={otherLang === 'pt' ? 'pt-PT' : 'en'}
+              aria-label={lang === 'pt' ? 'Ver o site em inglês' : 'View the site in Portuguese'}
               className="px-3 py-1.5 border border-[#E5E2D9] rounded-md text-[11px] font-bold text-[#4f5e38] hover:border-[#d76d2d] hover:text-[#d76d2d] transition-colors bg-white/50"
             >
               {lang === 'pt' ? 'EN' : 'PT'}
-            </button>
+            </Link>
 
           </div>
         </div>
@@ -273,12 +263,12 @@ function SitePsicologo() {
                 <h3 className="text-lg font-bold mb-3 text-[#4f5e38]">{item.title[lang]}</h3>
                 <p className="text-gray-500 text-sm mb-8 flex-grow font-light leading-relaxed">{item.text[lang]}</p>
                 
-                <button 
-                  onClick={() => router.push(`/intervencoes/${item.id}?lang=${lang}`)}
+                <Link
+                  href={localePath(lang, `/intervencoes/${item.id}`)}
                   className="inline-flex items-center text-xs font-bold uppercase tracking-[0.2em] text-[#d76d2d] hover:text-[#4f5e38] transition-colors py-2 text-left"
                 >
                   {staticTexts.learnMore[lang]} <ChevronRight size={18} className="ml-2 group-hover:translate-x-2 transition-transform" />
-                </button>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -355,14 +345,5 @@ function SitePsicologo() {
         </div>
       </footer>
     </div>
-  );
-}
-
-// NOVO EXPORT DEFAULT COM SUSPENSE (Protege o build contra o useSearchParams)
-export default function Page() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-[#F8F7F2]" />}>
-      <SitePsicologo />
-    </Suspense>
   );
 }
