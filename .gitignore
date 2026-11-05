@@ -1,0 +1,2 @@
+# Dependências (o projeto está em site-nuno/, que tem o seu próprio .gitignore)
+node_modules/
