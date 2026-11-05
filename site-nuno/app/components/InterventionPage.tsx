@@ -4,53 +4,33 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ChevronLeft, MessageCircle, Mail } from 'lucide-react';
+import { Header } from './Header';
 import { Footer } from './Footer';
 import { contentMap } from '../content/intervencoes';
+import { textos, contactos } from '../content/site';
 import { type Language, localePath } from '../lib/i18n';
 
 // Página de detalhe de uma intervenção. O idioma vem do endereço (/ ou /en).
 export function InterventionPage({ id, lang }: { id: string; lang: Language }) {
   const content = contentMap[id];
   const otherLang: Language = lang === 'pt' ? 'en' : 'pt';
-
-  const staticTexts = {
-    backBtn: { pt: "Voltar", en: "Back" },
-    ctaTitle: { pt: "Ficou com dúvidas?", en: "Have any questions?" },
-    whatsapp: { pt: "WhatsApp", en: "WhatsApp" },
-    email: { pt: "Email", en: "Email" },
-    switchLang: { pt: "Ver esta página em inglês", en: "View this page in Portuguese" }
-  };
+  const cta = textos.interventionCta;
 
   return (
-    <div className="min-h-screen bg-[#F8F7F2] text-[#4A4A4A] font-sans selection:bg-[#d76d2d]/30">
-      
-      {/* --- NAVEGAÇÃO --- */}
-      <nav className="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-[#E5E2D9]">
-        <div className="max-w-6xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
-          
+    <div className="min-h-screen bg-[#F8F7F2] text-[#4A4A4A] font-sans selection:bg-[#d76d2d]/30 overflow-x-hidden">
+      <Header lang={lang} switchHref={localePath(otherLang, `/intervencoes/${id}`)} />
+
+      <main className="pt-32 md:pt-36 pb-24 px-6">
+        <article className="max-w-4xl mx-auto">
+
           {/* Volta à secção de intervenções da página principal, no mesmo idioma */}
           <Link
             href={`${localePath(lang)}#intervencoes`}
-            className="group flex items-center gap-2 text-[#4f5e38] font-bold text-[10px] uppercase tracking-[0.3em] hover:text-[#d76d2d] transition-colors"
+            className="group inline-flex items-center gap-2 mb-10 text-[#4f5e38] font-bold text-[10px] uppercase tracking-[0.3em] hover:text-[#d76d2d] transition-colors"
           >
-            <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" /> {staticTexts.backBtn[lang]}
+            <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" /> {textos.menu.back[lang]}
           </Link>
 
-          {/* Seletor de idioma: link para a mesma página no outro idioma */}
-          <Link
-            href={localePath(otherLang, `/intervencoes/${id}`)}
-            hrefLang={otherLang === 'pt' ? 'pt-PT' : 'en'}
-            aria-label={staticTexts.switchLang[lang]}
-            className="px-3 py-1 border border-[#E5E2D9] rounded-md text-[11px] font-bold text-[#4f5e38] hover:border-[#d76d2d] hover:text-[#d76d2d] transition-colors bg-white/50"
-          >
-            {lang === 'pt' ? 'EN' : 'PT'}
-          </Link>
-        </div>
-      </nav>
-
-      <main className="pt-40 pb-24 px-6">
-        <article className="max-w-4xl mx-auto">
-          
           {/* TÍTULO */}
           <motion.div
             initial={{ opacity: 0, y: -40 }}
@@ -115,13 +95,13 @@ export function InterventionPage({ id, lang }: { id: string; lang: Language }) {
             viewport={{ once: true }}
             className="mt-20 p-10 bg-gradient-to-br from-[#4f5e38] to-[#6a7a50] rounded-[2.5rem] text-center text-white shadow-2xl"
           >
-            <h3 className="text-2xl font-serif mb-8 text-white">{staticTexts.ctaTitle[lang]}</h3>
+            <h3 className="text-2xl font-serif mb-8 text-white">{cta.title[lang]}</h3>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="https://wa.me/351962858716" className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#d76d2d] text-white rounded-full hover:bg-white hover:text-[#4f5e38] transition-all font-bold shadow-lg">
-                <MessageCircle size={20} /> {staticTexts.whatsapp[lang]}
+              <a href={contactos.whatsappUrl} className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#d76d2d] text-white rounded-full hover:bg-white hover:text-[#4f5e38] transition-all font-bold shadow-lg">
+                <MessageCircle size={20} /> {cta.whatsapp[lang]}
               </a>
-              <a href="mailto:nunopirespsic@gmail.com" className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/20 text-white rounded-full hover:bg-white/10 backdrop-blur-md transition-all">
-                <Mail size={20} /> {staticTexts.email[lang]}
+              <a href={`mailto:${contactos.email}`} className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/20 text-white rounded-full hover:bg-white/10 backdrop-blur-md transition-all">
+                <Mail size={20} /> {cta.email[lang]}
               </a>
             </div>
           </motion.div>
@@ -129,7 +109,6 @@ export function InterventionPage({ id, lang }: { id: string; lang: Language }) {
       </main>
 
       <Footer lang={lang} />
-
     </div>
   );
 }

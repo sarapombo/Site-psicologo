@@ -1,20 +1,10 @@
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { textos, contactos } from '../content/site';
 import type { Language } from '../lib/i18n';
 
-// Morada (não se traduz) — usada no link do Google Maps
-const MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=' +
-  encodeURIComponent('Praça Filipa de Lencastre 22, 4050-259 Porto');
-
-const texts = {
-  address: { pt: 'Morada', en: 'Address' },
-  phone: { pt: 'Telemóvel', en: 'Mobile' },
-  email: { pt: 'Email', en: 'Email' },
-  addressAction: { pt: 'Ver no mapa', en: 'View on map' },
-  phoneAction: { pt: 'Ligar', en: 'Call' },
-  emailAction: { pt: 'Enviar email', en: 'Send email' },
-};
+const texts = textos.contact;
+const [emailUser, emailDomain] = contactos.email.split('@');
 
 // Cada contacto é um cartão clicável por inteiro (área de toque grande)
 const cardClass =
@@ -29,34 +19,32 @@ const valueClass = 'text-white/90 text-base font-light leading-relaxed';
 const actionClass =
   'mt-auto pt-1 text-[10px] uppercase tracking-[0.2em] text-white/40 group-hover:text-white/80 transition-colors';
 
-// Morada, telemóvel e email por escrito, em 3 colunas — partilhado pelos dois footers do site
+// Morada, telemóvel e email por escrito, em 3 colunas (usado no footer)
 export function ContactInfo({ lang }: { lang: Language }) {
   return (
     <address className="not-italic grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
-      <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={cardClass}>
+      <a href={contactos.mapsUrl} target="_blank" rel="noopener noreferrer" className={cardClass}>
         <span className={iconClass}><MapPin size={20} aria-hidden="true" /></span>
         <span className={labelClass}>{texts.address[lang]}</span>
         <span className={valueClass}>
-          Praça Filipa de Lencastre
-          <br />
-          nº 22, 6º andar, sala 101
-          <br />
-          4050-259 Porto
+          {contactos.addressLines.map((line, i) => (
+            <React.Fragment key={line}>{i > 0 && <br />}{line}</React.Fragment>
+          ))}
         </span>
         <span className={actionClass}>{texts.addressAction[lang]}</span>
       </a>
 
-      <a href="tel:+351962858716" className={cardClass}>
+      <a href={contactos.phoneHref} className={cardClass}>
         <span className={iconClass}><Phone size={20} aria-hidden="true" /></span>
         <span className={labelClass}>{texts.phone[lang]}</span>
-        <span className={`${valueClass} text-lg tracking-wide`}>962 858 716</span>
+        <span className={`${valueClass} text-lg tracking-wide`}>{contactos.phoneDisplay}</span>
         <span className={actionClass}>{texts.phoneAction[lang]}</span>
       </a>
 
-      <a href="mailto:nunopirespsic@gmail.com" className={cardClass}>
+      <a href={`mailto:${contactos.email}`} className={cardClass}>
         <span className={iconClass}><Mail size={20} aria-hidden="true" /></span>
         <span className={labelClass}>{texts.email[lang]}</span>
-        <span className={`${valueClass} break-words`}>nunopirespsic<wbr />@gmail.com</span>
+        <span className={`${valueClass} break-words`}>{emailUser}<wbr />@{emailDomain}</span>
         <span className={actionClass}>{texts.emailAction[lang]}</span>
       </a>
     </address>

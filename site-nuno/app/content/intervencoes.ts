@@ -1,7 +1,14 @@
-// Textos e imagens das páginas de cada intervenção (PT/EN)
+// Lista única das intervenções: cartões da página principal, páginas de
+// detalhe (PT/EN), sitemap e imagens de partilha são gerados a partir daqui.
+// Para acrescentar uma intervenção basta acrescentar uma entrada nova.
+// A ordem das entradas é a ordem dos cartões na página principal.
+
+export type InterventionIcon = "heart" | "users" | "waves" | "award" | "book" | "wind" | "graduation";
 
 export interface ContentItem {
   title: { pt: string; en: string };
+  icon: InterventionIcon;
+  summary: { pt: string; en: string };
   paragraphs: { pt: string[]; en: string[] };
   highlights: { pt: string[]; en: string[] };
   images?: string[];
@@ -10,6 +17,12 @@ export interface ContentItem {
 export const contentMap: Record<string, ContentItem> = {
   "psicoterapia": {
     title: { pt: "Psicoterapia", en: "Psychotherapy" },
+    icon: "heart",
+    // Texto curto do cartão na página principal
+    summary: {
+      pt: "Espaço relacional, seguro e confidencial, que permite explorar dificuldades emocionais, relacionais ou existenciais.",
+      en: "A relational, safe, and confidential space to explore emotional, relational, or existential difficulties."
+    },
     paragraphs: {
       pt: [
         "A psicoterapia é um processo de acompanhamento psicológico que tem como base a relação terapêutica entre o psicólogo e a pessoa que procura apoio. Este espaço relacional, seguro e confidencial, permite explorar dificuldades emocionais, relacionais ou existenciais, com o objetivo de promover maior compreensão de si próprio.",
@@ -27,6 +40,12 @@ export const contentMap: Record<string, ContentItem> = {
   },
   "psicodrama": {
     title: { pt: "Psicodrama", en: "Psychodrama" },
+    icon: "users",
+    // Texto curto do cartão na página principal
+    summary: {
+      pt: "Modelo que alia a expressão emocional, a ação e a relação através da representação de situações quotidianas.",
+      en: "A model that combines emotional expression, action, and relationships through the enactment of daily situations."
+    },
     paragraphs: {
       pt: [
         "O Psicodrama é um modelo psicoterapêutico criado pelo psiquiatra Jacob Levy Moreno, que alia a expressão emocional, a ação e a relação com os outros como ferramentas de mudança terapêutica. Trata-se de uma terapia individual que decorre em contexto de grupo.",
@@ -45,6 +64,12 @@ export const contentMap: Record<string, ContentItem> = {
   },
   "psicodanca": {
     title: { pt: "Psicodança", en: "Psychodance" },
+    icon: "waves",
+    // Texto curto do cartão na página principal
+    summary: {
+      pt: "Abordagem baseada nos princípios morenianos que privilegia a comunicação corpo-mente através do movimento.",
+      en: "An approach based on Morenian principles that prioritizes body-mind communication through movement."
+    },
     paragraphs: {
       pt: [
         "A Psicodança é uma abordagem psicoterapêutica baseada nos princípios do psicodrama moreniano, realizada em contexto de grupo. Privilegia a comunicação corpo–mente, recorrendo ao movimento, à música e à expressão corporal como principais meios terapêuticos.",
@@ -63,6 +88,12 @@ export const contentMap: Record<string, ContentItem> = {
   },
   "terapia-equinos": {
     title: { pt: "Terapia Assistida por Equinos", en: "Equine-Assisted Therapy" },
+    icon: "award",
+    // Texto curto do cartão na página principal
+    summary: {
+      pt: "Desenvolvimento pessoal através da relação com cavalos (sessões no solo), funcionando como espelhos emocionais.",
+      en: "Personal development through the relationship with horses (groundwork sessions), which act as emotional mirrors."
+    },
     paragraphs: {
       pt: [
         "A Terapia Assistida por Equinos promove o desenvolvimento pessoal e emocional através da relação estabelecida com os cavalos e da realização de exercícios estruturados em contexto terapêutico. As sessões decorrem no solo, não havendo montaria.",
@@ -83,6 +114,12 @@ export const contentMap: Record<string, ContentItem> = {
   },
   "psicadelicos": {
     title: { pt: "Preparação e Integração de Experiências Psicadélicas", en: "Preparation and Integration of Psychedelic Experiences" },
+    icon: "book",
+    // Texto curto do cartão na página principal
+    summary: {
+      pt: "Acompanhamento especializado antes e após vivências em estados ampliados de consciência. Focado na preparação emocional, redução de riscos e na integração segura de insights em mudanças positivas no quotidiano.",
+      en: "Specialized support before and after experiences in expanded states of consciousness. Focused on emotional preparation, risk reduction, and the safe integration of insights into positive changes in daily life."
+    },
     paragraphs: {
       pt: [
         "A intervenção de preparação e integração psicológica de experiências psicadélicas centra-se no acompanhamento da pessoa antes e após vivências em estados ampliados de consciência. O objetivo é apoiar a pessoa na compreensão, elaboração e incorporação dessas experiências na sua vida emocional, relacional e existencial.", 
@@ -102,6 +139,12 @@ export const contentMap: Record<string, ContentItem> = {
   },
   "respiracao-holotropica": {
     title: { pt: "Respiração Holotrópica", en: "Holotropic Breathwork" },
+    icon: "wind",
+    // Texto curto do cartão na página principal
+    summary: {
+      pt: "Abordagem experiencial que utiliza respiração e música para aceder a estados ampliados de consciência.",
+      en: "An experiential approach that uses breathing patterns and evocative music to access expanded states of consciousness."
+    },
     paragraphs: {
       pt: [
         "A Respiração Holotrópica é uma abordagem experiencial de autoconhecimento e desenvolvimento pessoal que utiliza padrões específicos de respiração, música evocativa e trabalho corporal para facilitar o acesso a estados ampliados de consciência, sem recurso a substâncias.",
@@ -119,6 +162,12 @@ export const contentMap: Record<string, ContentItem> = {
   },
   "supervisao": {
     title: { pt: "Supervisão em Psicoterapia e Psicodrama", en: "Psychotherapy and Psychodrama Supervision" },
+    icon: "graduation",
+    // Texto curto do cartão na página principal
+    summary: {
+      pt: "Supervisão especializada em psicoterapia e psicodrama, individual ou em grupo. Um espaço seguro e colaborativo para reflexão clínica, aprofundamento técnico e desenvolvimento profissional (online e presencial).",
+      en: "Specialized supervision in psychotherapy and psychodrama, individual or in group. A safe and collaborative space for clinical reflection, technical deepening, and professional development (online and in-person)."
+    },
     paragraphs: {
       pt: [
         "Supervisão especializada em psicoterapia individual e psicoterapia de grupo, incluindo psicodrama. Um espaço de reflexão clínica, aprendizagem e desenvolvimento profissional, orientado para o aprofundamento técnico, a qualidade da intervenção e o crescimento contínuo do terapeuta.",

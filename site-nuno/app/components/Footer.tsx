@@ -1,98 +1,80 @@
 import React from 'react';
-import { Instagram } from 'lucide-react';
+import { MessageCircle, Instagram } from 'lucide-react';
 import { ContactInfo } from './ContactInfo';
+import { textos, contactos } from '../content/site';
 import type { Language } from '../lib/i18n';
 
-// Footer das páginas de intervenções. O idioma vem do endereço (/ ou /en).
+// Footer, igual em todas as páginas (id="contacto" é o destino do botão "Contactos")
 export function Footer({ lang }: { lang: Language }) {
-  // Dicionário de textos para o Footer
-  const staticTexts = {
-    slogan: { 
-      pt: "Sentir, Agir e Transformar.", 
-      en: "To Feel, to Act and to Transform." 
-    },
-    contacts: {
-      pt: "Contactos",
-      en: "Contacts"
-    },
-    socials: {
-      pt: "Redes Sociais", 
-      en: "Social Media" 
-    },
-    rights: { 
-      pt: "© 2026 Nuno Pires — Todos os direitos reservados", 
-      en: "© 2026 Nuno Pires — All rights reserved" 
-    },
-    devBy: { 
-      pt: "Desenvolvido por", 
-      en: "Developed by" 
-    }
-  };
+  const t = textos.footer;
 
   return (
-    <footer className="bg-gradient-to-b from-[#4f5e38] to-[#6b7d52] text-white pt-12 pb-8 px-6 relative z-10 border-t border-white/5">
+    <footer id="contacto" className="bg-[#4f5e38] text-white pt-24 pb-16 px-6 relative z-10">
       <div className="max-w-6xl mx-auto">
-        {/* Em mobile: contactos antes das redes sociais */}
-        <div className="flex flex-col gap-10 mb-12">
-          <div className="contents md:grid md:grid-cols-2 md:gap-10 md:items-center">
+        {/* Em mobile: contactos logo a seguir aos botões e redes sociais no fim */}
+        <div className="flex flex-col gap-16 mb-24">
+          <div className="contents md:grid md:grid-cols-3 md:gap-16 md:items-start">
 
-            {/* Coluna 1: Logo Dr. Nuno */}
-            <div className="space-y-4 text-center md:text-left">
-              <img src="/logo-nuno-pires-branco.svg" alt="Nuno Pires — Psicólogo Clínico & Psicoterapeuta" className="w-full max-w-[280px] h-auto mx-auto md:mx-0" />
-              <p className="text-white/60 text-base font-serif italic max-w-xs mx-auto md:mx-0">
-                {staticTexts.slogan[lang]}
+            {/* Logo e slogan */}
+            <div className="space-y-8 text-center md:text-left">
+              <img src="/logo-nuno-pires-branco.svg" alt={textos.meta.logoAlt[lang]} className="w-full max-w-[300px] h-auto mx-auto md:mx-0" />
+              <p className="text-white/70 text-base font-light leading-relaxed max-w-xs mx-auto md:mx-0 italic">
+                {t.slogan[lang]}
               </p>
             </div>
 
-            {/* Coluna 2: Redes Sociais */}
-            <div className="order-last md:order-none text-center md:text-right space-y-6">
-              <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#d76d2d]">
-                {staticTexts.socials[lang]}
-              </h4>
-              <div className="flex justify-center md:justify-end gap-4">
-                <a 
-                  href="https://www.instagram.com/nunomcpires" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="p-3 bg-white/5 rounded-full hover:bg-[#d76d2d] transition-all border border-white/10 shadow-lg"
-                > 
-                  <Instagram size={20} />
+            {/* Contactos Profissionais: WhatsApp e Email */}
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl font-serif text-[#d76d2d] uppercase tracking-[0.2em]">{t.contactsTitle[lang]}</h2>
+              <div className="w-16 h-1 bg-[#d76d2d] mx-auto mb-8"></div>
+              <div className="space-y-5">
+                <a href={contactos.whatsappUrl} className="flex items-center justify-center gap-4 p-5 bg-[#d76d2d] rounded-2xl hover:bg-white hover:text-[#4f5e38] transition-all font-bold shadow-xl group text-lg">
+                  <MessageCircle size={22} className="group-hover:rotate-12 transition-transform" /> WhatsApp
                 </a>
+                <a href={`mailto:${contactos.email}`} className="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/20 hover:bg-white/10 transition-all text-base tracking-wide">
+                  {t.emailBtn[lang]}
+                </a>
+              </div>
+            </div>
+
+            {/* Redes Sociais */}
+            <div className="order-last md:order-none text-center md:text-right space-y-8">
+              <h4 className="text-xs uppercase tracking-[0.4em] font-bold text-[#d76d2d]">
+                {t.socials[lang]}
+              </h4>
+              <div className="flex justify-center md:justify-end gap-6">
+                <a href={contactos.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-3 bg-white/5 rounded-full hover:bg-[#d76d2d] transition-all border border-white/10 shadow-lg"> <Instagram size={20} /></a>
               </div>
             </div>
           </div>
 
-          {/* Contactos: morada, telemóvel e email em 3 colunas */}
-          <div className="space-y-6">
-            <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#d76d2d] text-center">
-              {staticTexts.contacts[lang]}
-            </h4>
-            <ContactInfo lang={lang} />
-          </div>
+          {/* Morada, telemóvel e email em 3 colunas */}
+          <ContactInfo lang={lang} />
         </div>
 
-        {/* Barra Final: Copyright e Teu Logo */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          
-          <div className="text-[10px] tracking-[0.3em] uppercase font-medium text-white/40 text-center md:text-left">
-            {staticTexts.rights[lang]}
+        {/* Barra final: direitos e créditos */}
+        <div className="pt-16 border-t border-white/10 flex flex-col md:grid md:grid-cols-3 items-center gap-8">
+          <div className="text-[11px] md:text-xs tracking-[0.3em] uppercase font-medium text-white/50 text-center md:text-left leading-relaxed">
+            {t.rights[lang]}
           </div>
-          
-          {/* Teu Logo Clicável */}
-          <div className="flex items-center gap-3 group">
-            <span className="text-[8px] tracking-[0.3em] uppercase text-white/30">
-              {staticTexts.devBy[lang]}
-            </span>
-            <a 
-              href="https://linktr.ee/sarapombo" 
-              target="_blank" 
+
+          <div className="hidden md:block"></div>
+
+          <div className="flex items-center justify-center md:justify-end gap-5 group">
+            <div className="text-right">
+              <span className="block text-[10px] tracking-[0.3em] uppercase text-white/50 mb-1">{t.devBy[lang]}</span>
+            </div>
+
+            <a
+              href="https://linktr.ee/sarapombo"
+              target="_blank"
               rel="noopener noreferrer"
-              className="transition-all duration-500 hover:scale-110 hover:rotate-3"
+              className="relative overflow-hidden p-1 transition-all duration-500 hover:scale-110 hover:rotate-6"
             >
-              <img 
-                src="/sarapombo.png" 
-                alt="Sara Pombo Logo" 
-                className="h-12 w-auto drop-shadow-[0_0_8px_rgba(255,255,255,0.1)]" 
+              <img
+                src="/sarapombo.png"
+                alt="Sara Pombo Logo"
+                className="h-14 w-auto drop-shadow-[0_0_15px_rgba(215,109,45,0.3)]"
               />
             </a>
           </div>
