@@ -41,39 +41,42 @@ function FooterContent() {
   return (
     <footer className="bg-gradient-to-b from-[#4f5e38] to-[#6b7d52] text-white pt-12 pb-8 px-6 relative z-10 border-t border-white/5">
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-10 mb-12 items-start">
+        {/* Em mobile: contactos antes das redes sociais */}
+        <div className="flex flex-col gap-10 mb-12">
+          <div className="contents md:grid md:grid-cols-2 md:gap-10 md:items-center">
 
-          {/* Coluna 1: Logo Dr. Nuno */}
-          <div className="space-y-4 text-center md:text-left">
-            <img src="/logo-nuno-pires-branco.svg" alt="Nuno Pires — Psicólogo Clínico & Psicoterapeuta" className="w-full max-w-[280px] h-auto mx-auto md:mx-0" />
-            <p className="text-white/60 text-base font-serif italic max-w-xs mx-auto md:mx-0">
-              {staticTexts.slogan[lang]}
-            </p>
+            {/* Coluna 1: Logo Dr. Nuno */}
+            <div className="space-y-4 text-center md:text-left">
+              <img src="/logo-nuno-pires-branco.svg" alt="Nuno Pires — Psicólogo Clínico & Psicoterapeuta" className="w-full max-w-[280px] h-auto mx-auto md:mx-0" />
+              <p className="text-white/60 text-base font-serif italic max-w-xs mx-auto md:mx-0">
+                {staticTexts.slogan[lang]}
+              </p>
+            </div>
+
+            {/* Coluna 2: Redes Sociais */}
+            <div className="order-last md:order-none text-center md:text-right space-y-6">
+              <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#d76d2d]">
+                {staticTexts.socials[lang]}
+              </h4>
+              <div className="flex justify-center md:justify-end gap-4">
+                <a 
+                  href="https://www.instagram.com/nunomcpires" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-3 bg-white/5 rounded-full hover:bg-[#d76d2d] transition-all border border-white/10 shadow-lg"
+                > 
+                  <Instagram size={20} />
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* Coluna 2: Contactos (morada, telemóvel e email) */}
+          {/* Contactos: morada, telemóvel e email em 3 colunas */}
           <div className="space-y-6">
             <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#d76d2d] text-center">
               {staticTexts.contacts[lang]}
             </h4>
             <ContactInfo lang={lang} />
-          </div>
-
-          {/* Coluna 3: Redes Sociais */}
-          <div className="text-center md:text-right space-y-6">
-            <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#d76d2d]">
-              {staticTexts.socials[lang]}
-            </h4>
-            <div className="flex justify-center md:justify-end gap-4">
-              <a 
-                href="https://www.instagram.com/nunomcpires" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-3 bg-white/5 rounded-full hover:bg-[#d76d2d] transition-all border border-white/10 shadow-lg"
-              > 
-                <Instagram size={20} />
-              </a>
-            </div>
           </div>
         </div>
 

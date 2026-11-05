@@ -288,39 +288,42 @@ function SitePsicologo() {
       {/* --- FOOTER CUSTOMIZADO --- */}
       <footer id="contacto" className="bg-[#4f5e38] text-white pt-24 pb-16 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-16 mb-24 items-start">
+          {/* Em mobile: contactos logo a seguir aos botões e redes sociais no fim */}
+          <div className="flex flex-col gap-16 mb-24">
+            <div className="contents md:grid md:grid-cols-3 md:gap-16 md:items-start">
             
-            <div className="space-y-8 text-center md:text-left">
-              <img src="/logo-nuno-pires-branco.svg" alt="Nuno Pires — Psicólogo Clínico & Psicoterapeuta" className="w-full max-w-[300px] h-auto mx-auto md:mx-0" />
-              <p className="text-white/70 text-base font-light leading-relaxed max-w-xs mx-auto md:mx-0 italic">
-                {lang === 'pt' ? "Sentir, Agir e Transformar." : "To Feel, to Act and to Transform."}
-              </p>
+              <div className="space-y-8 text-center md:text-left">
+                <img src="/logo-nuno-pires-branco.svg" alt="Nuno Pires — Psicólogo Clínico & Psicoterapeuta" className="w-full max-w-[300px] h-auto mx-auto md:mx-0" />
+                <p className="text-white/70 text-base font-light leading-relaxed max-w-xs mx-auto md:mx-0 italic">
+                  {lang === 'pt' ? "Sentir, Agir e Transformar." : "To Feel, to Act and to Transform."}
+                </p>
+              </div>
+
+              <div className="text-center space-y-4">
+                <h2 className="text-3xl font-serif text-[#d76d2d] uppercase tracking-[0.2em]">{staticTexts.footerTitle[lang]}</h2>
+                <div className="w-16 h-1 bg-[#d76d2d] mx-auto mb-8"></div>
+                <div className="space-y-5">
+                  <a href="https://wa.me/351962858716" className="flex items-center justify-center gap-4 p-5 bg-[#d76d2d] rounded-2xl hover:bg-white hover:text-[#4f5e38] transition-all font-bold shadow-xl group text-lg">
+                    <MessageCircle size={22} className="group-hover:rotate-12 transition-transform" /> WhatsApp
+                  </a>
+                  <a href="mailto:nunopirespsic@gmail.com" className="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/20 hover:bg-white/10 transition-all text-base tracking-wide">
+                    {staticTexts.emailBtn[lang]}
+                  </a>
+                </div>
+              </div>
+
+              <div className="order-last md:order-none text-center md:text-right space-y-8">
+                <h4 className="text-xs uppercase tracking-[0.4em] font-bold text-[#d76d2d]">
+                  {lang === 'pt' ? "Redes Sociais" : "Social Media"}
+                </h4>
+                <div className="flex justify-center md:justify-end gap-6">
+                  <a href="https://www.instagram.com/nunomcpires" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-[#d76d2d] transition-all border border-white/10 shadow-lg"> <Instagram size={20} /></a>
+                </div>
+              </div>
             </div>
 
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl font-serif text-[#d76d2d] uppercase tracking-[0.2em]">{staticTexts.footerTitle[lang]}</h2>
-              <div className="w-16 h-1 bg-[#d76d2d] mx-auto mb-8"></div>
-              <div className="space-y-5">
-                <a href="https://wa.me/351962858716" className="flex items-center justify-center gap-4 p-5 bg-[#d76d2d] rounded-2xl hover:bg-white hover:text-[#4f5e38] transition-all font-bold shadow-xl group text-lg">
-                  <MessageCircle size={22} className="group-hover:rotate-12 transition-transform" /> WhatsApp
-                </a>
-                <a href="mailto:nunopirespsic@gmail.com" className="flex items-center justify-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/20 hover:bg-white/10 transition-all text-base tracking-wide">
-                  {staticTexts.emailBtn[lang]}
-                </a>
-              </div>
-              <div className="pt-10 mt-10 border-t border-white/10">
-                <ContactInfo lang={lang} />
-              </div>
-            </div>
-
-            <div className="text-center md:text-right space-y-8">
-              <h4 className="text-xs uppercase tracking-[0.4em] font-bold text-[#d76d2d]">
-                {lang === 'pt' ? "Redes Sociais" : "Social Media"}
-              </h4>
-              <div className="flex justify-center md:justify-end gap-6">
-                <a href="https://www.instagram.com/nunomcpires" target="_blank" rel="noopener noreferrer" className="p-3 bg-white/5 rounded-full hover:bg-[#d76d2d] transition-all border border-white/10 shadow-lg"> <Instagram size={20} /></a>
-              </div>
-            </div>
+            {/* Morada, telemóvel e email em 3 colunas */}
+            <ContactInfo lang={lang} />
           </div>
 
           <div className="pt-16 border-t border-white/10 flex flex-col md:grid md:grid-cols-3 items-center gap-8">
