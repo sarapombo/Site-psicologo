@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nuno Pires — Psicólogo Clínico & Psicoterapeuta
 
-## Getting Started
+Site profissional de Nuno Pires, psicólogo clínico e psicoterapeuta no Porto.
 
-First, run the development server:
+🌐 **Site:** [www.nuno-pires.com](https://www.nuno-pires.com/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+O site está disponível em **português** e **inglês** (botão PT/EN no menu).
+
+## Tecnologias
+
+- [Next.js](https://nextjs.org) 16 (App Router) e React 19
+- [Tailwind CSS](https://tailwindcss.com) 4
+- [Framer Motion](https://www.framer.com/motion/) para as animações
+- [Lucide](https://lucide.dev) para os ícones
+- Alojamento na [Vercel](https://vercel.com)
+
+## Estrutura
+
+```
+site-nuno/
+├── app/
+│   ├── page.tsx                   # Página principal (textos PT/EN incluídos)
+│   ├── intervencoes/[id]/page.tsx # Página de detalhe de cada intervenção
+│   ├── Footer.tsx                 # Footer das páginas de intervenções
+│   ├── ContactInfo.tsx            # Morada, telemóvel e email (usado nos footers)
+│   ├── layout.tsx                 # Título, descrição e favicon do site
+│   └── globals.css
+└── public/                        # Imagens, vídeo e logos
+    ├── logo-nuno-pires.svg          # Logo a cores (menu)
+    ├── logo-nuno-pires-branco.svg   # Logo branco (footers)
+    └── logo-nuno-pires-simbolo.svg  # Símbolo NP (favicon)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Desenvolvimento local
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd site-nuno
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Abrir [http://localhost:3000](http://localhost:3000) no browser.
 
-## Learn More
+## Publicação
 
-To learn more about Next.js, take a look at the following resources:
+Cada `push` para a branch `main` publica automaticamente o site em produção na Vercel.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desenvolvido por [Sara Pombo](https://linktr.ee/sarapombo).
