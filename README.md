@@ -14,39 +14,59 @@ O site está disponível em **português** (`/`) e **inglês** (`/en`), com o bo
 - [Lucide](https://lucide.dev) para os ícones
 - Alojamento na [Vercel](https://vercel.com)
 
+## Onde mudar o quê
+
+| Quero mudar…                                   | Ficheiro                               |
+| ---------------------------------------------- | -------------------------------------- |
+| Textos do site (menu, topo, "A Minha Prática", formação, footer…) | `site-nuno/app/content/site.ts` |
+| Morada, telemóvel, email, WhatsApp, Instagram  | `site-nuno/app/content/site.ts` (`contactos`) |
+| Intervenções (cartão, página, fotos, etiquetas) | `site-nuno/app/content/intervencoes.ts` |
+| Aspeto de uma secção                           | `site-nuno/app/components/...`         |
+
+Cada texto tem a versão portuguesa (`pt`) e inglesa (`en`) lado a lado. Se faltar uma delas, o build dá erro.
+
+**Para acrescentar uma intervenção:** basta acrescentar uma entrada em `content/intervencoes.ts`. O cartão na página principal, as páginas PT e EN, o sitemap e a imagem de partilha são gerados automaticamente.
+
 ## Estrutura
 
 ```
 site-nuno/
 ├── app/
-│   ├── (pt)/                         # Versão portuguesa
-│   │   ├── layout.tsx                #   <html lang="pt-PT">, título e descrição PT
-│   │   ├── page.tsx                  #   /
-│   │   └── intervencoes/[id]/page.tsx #  /intervencoes/psicodrama, ...
-│   ├── (en)/                         # Versão inglesa
-│   │   ├── layout.tsx                #   <html lang="en">, título e descrição EN
-│   │   └── en/
-│   │       ├── page.tsx              #   /en
-│   │       └── intervencoes/[id]/page.tsx # /en/intervencoes/psicodrama, ...
+│   ├── (pt)/                          # Versão portuguesa (/, /intervencoes/...)
+│   │   ├── layout.tsx                 #   <html lang="pt-PT">
+│   │   ├── page.tsx                   #   /
+│   │   ├── opengraph-image.tsx        #   imagem de partilha da página principal
+│   │   └── intervencoes/[id]/         #   /intervencoes/psicodrama, ... (+ imagem de partilha)
+│   ├── (en)/                          # Versão inglesa (/en, /en/intervencoes/...)
+│   │   ├── layout.tsx                 #   <html lang="en">
+│   │   └── en/...                     #   mesma estrutura que (pt)
+│   ├── content/
+│   │   ├── site.ts                    # Todos os textos PT/EN e dados de contacto
+│   │   └── intervencoes.ts            # Lista das intervenções (textos PT/EN, ícone, fotos)
 │   ├── components/
-│   │   ├── HomePage.tsx              # Página principal (textos PT/EN incluídos)
-│   │   ├── InterventionPage.tsx      # Página de detalhe de cada intervenção
-│   │   ├── Footer.tsx                # Footer das páginas de intervenções
-│   │   └── ContactInfo.tsx           # Morada, telemóvel e email (usado nos footers)
-│   ├── content/intervencoes.ts       # Textos e imagens de cada intervenção (PT/EN)
-│   ├── lib/i18n.ts                   # Idiomas, endereços /en e links hreflang
-│   ├── sitemap.ts                    # /sitemap.xml
-│   ├── robots.ts                     # /robots.txt
+│   │   ├── Header.tsx                 # Menu (igual em todas as páginas)
+│   │   ├── Footer.tsx                 # Footer (igual em todas as páginas)
+│   │   ├── ContactInfo.tsx            # Cartões de morada, telemóvel e email
+│   │   ├── HomePage.tsx               # Página principal (junta as secções)
+│   │   ├── home/                      # Secções: Hero, About, Training, Approaches
+│   │   └── InterventionPage.tsx       # Página de cada intervenção
+│   ├── lib/
+│   │   ├── i18n.ts                    # Idiomas, endereços /en e links hreflang
+│   │   ├── metadata.ts                # Título, descrição e partilha (Open Graph)
+│   │   ├── og.tsx                     # Desenho das imagens de partilha
+│   │   ├── structuredData.ts          # Dados para o Google (morada, telefone…)
+│   │   └── routes.tsx                 # Código comum às páginas PT e EN
+│   ├── sitemap.ts                     # /sitemap.xml
+│   ├── robots.ts                      # /robots.txt
 │   └── globals.css
-└── public/                           # Imagens, vídeo e logos
-    ├── logo-nuno-pires.svg             # Logo a cores (menu)
-    ├── logo-nuno-pires-branco.svg      # Logo branco (footers)
-    └── logo-nuno-pires-simbolo.svg     # Símbolo NP (favicon)
+├── assets/fonts/                      # Tipos de letra das imagens de partilha (Lora, Geist — licença OFL)
+└── public/                            # Imagens, vídeo e logos
+    ├── logo-nuno-pires.svg              # Logo a cores (menu)
+    ├── logo-nuno-pires-branco.svg       # Logo branco (footer)
+    └── logo-nuno-pires-simbolo.svg      # Símbolo NP (favicon)
 ```
 
 As pastas `(pt)` e `(en)` não aparecem no endereço: servem só para cada idioma ter o seu próprio layout. As páginas são geradas como HTML estático no build, já com os textos, para o Google as conseguir ler.
-
-**Para adicionar uma intervenção:** acrescentar uma entrada em `content/intervencoes.ts` e o cartão correspondente em `components/HomePage.tsx`. As páginas PT e EN e o sitemap são gerados automaticamente.
 
 ## Desenvolvimento local
 
