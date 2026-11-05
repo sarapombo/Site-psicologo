@@ -1,22 +1,10 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import { geistSans, geistMono } from "../lib/fonts";
-import { SITE_URL } from "../lib/i18n";
+import { layoutMetadata } from "../lib/metadata";
 
 // Layout da versão inglesa (/en e /en/intervencoes/...)
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: {
-    default: "Nuno Pires - Clinical Psychologist & Psychotherapist",
-    template: "%s | Nuno Pires",
-  },
-  description: "Clinical Psychologist & Psychotherapist — Emotional Integration and Personal Development",
-  icons: {
-    icon: "/logo-nuno-pires-simbolo.svg?v=2",
-    shortcut: "/logo-nuno-pires-simbolo.svg?v=2",
-    apple: "/logo-nuno-pires-simbolo.svg?v=2",
-  },
-};
+export const metadata: Metadata = layoutMetadata("en");
 
 export default function RootLayout({
   children,
