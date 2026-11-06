@@ -61,10 +61,15 @@ site-nuno/
 │   └── globals.css
 ├── assets/fonts/                      # Tipos de letra das imagens de partilha (Lora, Geist — licença OFL)
 └── public/                            # Imagens, vídeo e logos
+    ├── hero-1080.mp4 / hero-720.mp4     # Vídeo do topo (computador / telemóvel), comprimido
+    ├── hero-poster.jpg                  # Imagem que aparece enquanto o vídeo carrega
     ├── logo-nuno-pires.svg              # Logo a cores (menu)
     ├── logo-nuno-pires-branco.svg       # Logo branco (footer)
-    └── logo-nuno-pires-simbolo.svg      # Símbolo NP (favicon)
+    ├── logo-nuno-pires-simbolo.svg      # Símbolo NP (favicon)
+    └── icon-192.png / apple-icon.png    # Ícone para o Google e para o iPhone
 ```
+
+**Fotos:** usar sempre o componente `Image` do Next.js (já usado em todo o site), que serve cada foto em formato leve (AVIF/WebP) e no tamanho certo para cada ecrã. **Vídeo:** se for trocado, deve ser comprimido (ver `hero-*.mp4`); o original em 4K tinha 24 MB.
 
 As pastas `(pt)` e `(en)` não aparecem no endereço: servem só para cada idioma ter o seu próprio layout. As páginas são geradas como HTML estático no build, já com os textos, para o Google as conseguir ler.
 

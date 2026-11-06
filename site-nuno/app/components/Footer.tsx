@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { MessageCircle, Instagram } from 'lucide-react';
 import { ContactInfo } from './ContactInfo';
 import { textos, contactos } from '../content/site';
@@ -17,8 +18,8 @@ export function Footer({ lang }: { lang: Language }) {
 
             {/* Logo e slogan */}
             <div className="space-y-8 text-center md:text-left">
-              <img src="/logo-nuno-pires-branco.svg" alt={textos.meta.logoAlt[lang]} className="w-full max-w-[300px] h-auto mx-auto md:mx-0" />
-              <p className="text-white/70 text-base font-light leading-relaxed max-w-xs mx-auto md:mx-0 italic">
+              <Image src="/logo-nuno-pires-branco.svg" alt={textos.meta.logoAlt[lang]} width={1665} height={306} unoptimized className="w-full max-w-[300px] h-auto mx-auto md:mx-0" />
+              <p className="text-white/80 text-base font-light leading-relaxed max-w-xs mx-auto md:mx-0 italic">
                 {t.slogan[lang]}
               </p>
             </div>
@@ -39,9 +40,9 @@ export function Footer({ lang }: { lang: Language }) {
 
             {/* Redes Sociais */}
             <div className="order-last md:order-none text-center md:text-right space-y-8">
-              <h4 className="text-xs uppercase tracking-[0.4em] font-bold text-[#d76d2d]">
+              <h3 className="text-xs uppercase tracking-[0.4em] font-bold text-[#d76d2d]">
                 {t.socials[lang]}
-              </h4>
+              </h3>
               <div className="flex justify-center md:justify-end gap-6">
                 <a href={contactos.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-3 bg-white/5 rounded-full hover:bg-[#d76d2d] transition-all border border-white/10 shadow-lg"> <Instagram size={20} /></a>
               </div>
@@ -54,7 +55,7 @@ export function Footer({ lang }: { lang: Language }) {
 
         {/* Barra final: direitos e créditos */}
         <div className="pt-16 border-t border-white/10 flex flex-col md:grid md:grid-cols-3 items-center gap-8">
-          <div className="text-[11px] md:text-xs tracking-[0.3em] uppercase font-medium text-white/50 text-center md:text-left leading-relaxed">
+          <div className="text-[11px] md:text-xs tracking-[0.3em] uppercase font-medium text-white/75 text-center md:text-left leading-relaxed">
             {t.rights[lang]}
           </div>
 
@@ -62,7 +63,7 @@ export function Footer({ lang }: { lang: Language }) {
 
           <div className="flex items-center justify-center md:justify-end gap-5 group">
             <div className="text-right">
-              <span className="block text-[10px] tracking-[0.3em] uppercase text-white/50 mb-1">{t.devBy[lang]}</span>
+              <span className="block text-[10px] tracking-[0.3em] uppercase text-white/75 mb-1">{t.devBy[lang]}</span>
             </div>
 
             <a
@@ -71,9 +72,12 @@ export function Footer({ lang }: { lang: Language }) {
               rel="noopener noreferrer"
               className="relative overflow-hidden p-1 transition-all duration-500 hover:scale-110 hover:rotate-6"
             >
-              <img
+              <Image
                 src="/sarapombo.png"
                 alt="Sara Pombo Logo"
+                width={823}
+                height={312}
+                sizes="148px"
                 className="h-14 w-auto drop-shadow-[0_0_15px_rgba(215,109,45,0.3)]"
               />
             </a>

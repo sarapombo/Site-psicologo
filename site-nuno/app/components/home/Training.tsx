@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
 import { textos } from '../../content/site';
 import type { Language } from '../../lib/i18n';
@@ -16,7 +16,7 @@ export function Training({ lang }: { lang: Language }) {
   return (
     <section id="formacao" className="py-20 bg-[#F0EFEB] px-6">
       <div className="max-w-4xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white rounded-3xl p-10 shadow-sm border border-[#E5E2D9]">
+        <m.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white rounded-3xl p-10 shadow-sm border border-[#E5E2D9]">
           <h3 className="text-2xl font-serif text-[#4f5e38] mb-8 flex items-center gap-3"><GraduationCap className="w-8 h-8 text-[#d76d2d]" /> {t.title[lang]}</h3>
           <div className="space-y-8">
             <div>
@@ -33,7 +33,7 @@ export function Training({ lang }: { lang: Language }) {
               ))}
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

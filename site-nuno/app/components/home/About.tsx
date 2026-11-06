@@ -1,10 +1,12 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { m } from 'framer-motion';
 import { ShieldCheck } from 'lucide-react';
 import { textos } from '../../content/site';
 import type { Language } from '../../lib/i18n';
+import fotoProfissional from '../../../public/foto-profissional-1.png';
 
 // Secção "A Minha Prática"
 export function About({ lang }: { lang: Language }) {
@@ -14,7 +16,7 @@ export function About({ lang }: { lang: Language }) {
     <section id="sobre" className="py-24 bg-white px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
+          <m.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
             <h2 className="text-3xl font-serif text-[#4f5e38]">{t.title[lang]}</h2>
             <div className="w-16 h-1 bg-[#d76d2d]"></div>
             <div className="space-y-4 text-gray-600 font-light text-lg">
@@ -27,10 +29,17 @@ export function About({ lang }: { lang: Language }) {
                 ))}
               </ul>
             </div>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="flex justify-center">
-            <motion.img src="/foto-profissional-1.png" alt={t.photoAlt[lang]} className="relative w-full max-w-sm rounded-2xl shadow-2xl border-b-4 border-[#d76d2d] z-10 transition-transform duration-500" whileHover={{ scale: 1.03, y: -5 }} />
-          </motion.div>
+          </m.div>
+          <m.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="flex justify-center">
+            <m.div whileHover={{ scale: 1.03, y: -5 }} className="relative w-full max-w-sm z-10 transition-transform duration-500">
+              <Image
+                src={fotoProfissional}
+                alt={t.photoAlt[lang]}
+                sizes="(min-width: 768px) 384px, calc(100vw - 48px)"
+                className="w-full h-auto rounded-2xl shadow-2xl border-b-4 border-[#d76d2d]"
+              />
+            </m.div>
+          </m.div>
         </div>
       </div>
     </section>

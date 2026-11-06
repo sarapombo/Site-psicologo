@@ -2,8 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { m } from 'framer-motion';
 import { ChevronLeft, MessageCircle, Mail } from 'lucide-react';
+import { MotionProvider } from './MotionProvider';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { contentMap } from '../content/intervencoes';
@@ -17,6 +19,7 @@ export function InterventionPage({ id, lang }: { id: string; lang: Language }) {
   const cta = textos.interventionCta;
 
   return (
+    <MotionProvider>
     <div className="min-h-screen bg-[#F8F7F2] text-[#4A4A4A] font-sans selection:bg-[#d76d2d]/30 overflow-x-hidden">
       <Header lang={lang} switchHref={localePath(otherLang, `/intervencoes/${id}`)} />
 
@@ -32,70 +35,57 @@ export function InterventionPage({ id, lang }: { id: string; lang: Language }) {
           </Link>
 
           {/* TÍTULO */}
-          <motion.div
-            initial={{ opacity: 0, y: -40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-10"
-          >
+          <div className="text-center mb-10 motion-safe:animate-enter-down">
             <h1 className="text-4xl md:text-6xl font-serif text-[#4f5e38] mb-6">
               {content.title[lang]}
             </h1>
             <div className="w-16 h-1 bg-[#d76d2d] mx-auto"></div>
-          </motion.div>
+          </div>
 
           {/* HIGHLIGHTS */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-3 mb-16"
-          >
+          <div className="flex flex-wrap justify-center gap-3 mb-16 motion-safe:animate-fade-in [animation-delay:300ms]">
             {content.highlights[lang].map((h, i) => (
               <span key={i} className="px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest bg-white text-[#4f5e38] border border-[#E5E2D9] shadow-sm">
                 {h}
               </span>
             ))}
-          </motion.div>
+          </div>
 
           {/* IMAGENS */}
           {content.images && (
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className={`grid gap-6 mb-16 ${content.images.length > 1 ? 'grid-cols-1 md:grid-cols-3' : 'max-w-2xl mx-auto'}`}
-            >
+            <div className={`grid gap-6 mb-16 motion-safe:animate-enter-up [animation-delay:500ms] ${content.images.length > 1 ? 'grid-cols-1 md:grid-cols-3' : 'max-w-2xl mx-auto'}`}>
               {content.images.map((src, idx) => (
-                <div key={idx} className="relative overflow-hidden rounded-2xl shadow-xl border-b-4 border-[#d76d2d]">
-                  <img 
-                    src={src} 
-                    alt={content.title[lang]} 
-                    className="w-full h-72 object-cover hover:scale-105 transition-transform duration-700"
+                <div key={idx} className="relative h-72 overflow-hidden rounded-2xl shadow-xl border-b-4 border-[#d76d2d]">
+                  <Image
+                    src={src}
+                    alt={content.title[lang]}
+                    fill
+                    sizes={content.images!.length > 1 ? '(min-width: 768px) 290px, calc(100vw - 48px)' : '(min-width: 720px) 672px, calc(100vw - 48px)'}
+                    // A primeira foto é a mais importante (no telemóvel é a única visível ao abrir):
+                    // carrega logo e com prioridade; as outras só quando se aproximam do ecrã
+                    preload={idx === 0}
+                    fetchPriority={idx === 0 ? 'high' : 'auto'}
+                    loading={idx === 0 ? undefined : 'lazy'}
+                    className="object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
               ))}
-            </motion.div>
+            </div>
           )}
 
           {/* TEXTO */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="space-y-8 text-lg md:text-xl text-gray-600 leading-relaxed font-light text-left"
-          >
+          <div className="space-y-8 text-lg md:text-xl text-gray-600 leading-relaxed font-light text-left motion-safe:animate-enter-up [animation-delay:700ms]">
             {content.paragraphs[lang].map((p, i) => <p key={i}>{p}</p>)}
-          </motion.div>
+          </div>
 
           {/* CARD DE CONTACTO */}
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="mt-20 p-10 bg-gradient-to-br from-[#4f5e38] to-[#6a7a50] rounded-[2.5rem] text-center text-white shadow-2xl"
           >
-            <h3 className="text-2xl font-serif mb-8 text-white">{cta.title[lang]}</h3>
+            <h2 className="text-2xl font-serif mb-8 text-white">{cta.title[lang]}</h2>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a href={contactos.whatsappUrl} className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#d76d2d] text-white rounded-full hover:bg-white hover:text-[#4f5e38] transition-all font-bold shadow-lg">
                 <MessageCircle size={20} /> {cta.whatsapp[lang]}
@@ -104,11 +94,12 @@ export function InterventionPage({ id, lang }: { id: string; lang: Language }) {
                 <Mail size={20} /> {cta.email[lang]}
               </a>
             </div>
-          </motion.div>
+          </m.div>
         </article>
       </main>
 
       <Footer lang={lang} />
     </div>
+    </MotionProvider>
   );
 }

@@ -12,6 +12,29 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Animações de entrada do topo das páginas, em CSS: começam logo que a página aparece,
+   sem esperar pelo JavaScript (o conteúdo fica visível mais cedo no telemóvel).
+   Usam-se com "motion-safe:" para respeitar quem tem "reduzir movimento" ativo. */
+@theme {
+  --animate-enter-down: enter-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-enter-down-sm: enter-down-sm 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-enter-up: enter-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in: fade-in 0.5s ease-out both;
+
+  @keyframes enter-down {
+    from { opacity: 0; transform: translateY(-40px); }
+  }
+  @keyframes enter-down-sm {
+    from { opacity: 0; transform: translateY(-20px); }
+  }
+  @keyframes enter-up {
+    from { opacity: 0; transform: translateY(30px); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

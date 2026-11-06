@@ -17,7 +17,7 @@ const iconClass =
 const labelClass = 'text-[10px] uppercase tracking-[0.3em] font-bold text-[#d76d2d]';
 const valueClass = 'text-white/90 text-base font-light leading-relaxed';
 const actionClass =
-  'mt-auto pt-1 text-[10px] uppercase tracking-[0.2em] text-white/40 group-hover:text-white/80 transition-colors';
+  'mt-auto pt-1 text-[10px] uppercase tracking-[0.2em] text-white/70 group-hover:text-white transition-colors';
 
 // Morada, telemóvel e email por escrito, em 3 colunas (usado no footer)
 export function ContactInfo({ lang }: { lang: Language }) {

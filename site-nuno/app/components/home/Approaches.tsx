@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Award, BookOpen, ChevronRight, GraduationCap, Heart, Users, Waves, Wind } from 'lucide-react';
 import { textos } from '../../content/site';
 import { contentMap, interventionIds, type InterventionIcon } from '../../content/intervencoes';
@@ -35,7 +35,7 @@ export function Approaches({ lang }: { lang: Language }) {
             const item = contentMap[id];
             const Icon = icons[item.icon];
             return (
-              <motion.div key={id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} viewport={{ once: true }} className="bg-white p-10 rounded-2xl border border-[#E5E2D9] hover:border-[#d76d2d] hover:shadow-xl transition-all group flex flex-col h-full">
+              <m.div key={id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} viewport={{ once: true }} className="bg-white p-10 rounded-2xl border border-[#E5E2D9] hover:border-[#d76d2d] hover:shadow-xl transition-all group flex flex-col h-full">
                 <div className="text-[#d76d2d] mb-6 group-hover:scale-110 transition-transform"><Icon className="w-6 h-6" /></div>
                 <h3 className="text-lg font-bold mb-3 text-[#4f5e38]">{item.title[lang]}</h3>
                 <p className="text-gray-500 text-sm mb-8 flex-grow font-light leading-relaxed">{item.summary[lang]}</p>
@@ -46,7 +46,7 @@ export function Approaches({ lang }: { lang: Language }) {
                 >
                   {t.learnMore[lang]} <ChevronRight size={18} className="ml-2 group-hover:translate-x-2 transition-transform" />
                 </Link>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>
