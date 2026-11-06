@@ -11,11 +11,15 @@ export function layoutMetadata(lang: Language): Metadata {
       template: "%s | Nuno Pires",
     },
     description: textos.meta.description[lang],
+    // Ícones: o favicon.ico (48x48, em app/) é adicionado automaticamente pelo Next.js.
+    // O PNG de 192px é o que o Google prefere para os resultados de pesquisa;
+    // o apple-icon.png é o ícone do iPhone ao adicionar o site ao ecrã principal.
     icons: {
-      // O ?v=2 força o browser a ler o ficheiro de novo e ignorar o antigo que está em cache
-      icon: "/logo-nuno-pires-simbolo.svg?v=2",
-      shortcut: "/logo-nuno-pires-simbolo.svg?v=2",
-      apple: "/logo-nuno-pires-simbolo.svg?v=2",
+      icon: [
+        { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+        { url: "/logo-nuno-pires-simbolo.svg?v=2", type: "image/svg+xml" },
+      ],
+      apple: { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
     },
   };
 }
